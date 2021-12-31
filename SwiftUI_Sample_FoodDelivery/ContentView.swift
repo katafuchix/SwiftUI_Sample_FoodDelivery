@@ -9,8 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            List {
+                NavigationLink(destination: DetailView(currentCategory: .burger)) {
+                    CategoryView(imageName: "burger", categoryName: "BURGER")
+                }
+                NavigationLink(destination: DetailView(currentCategory: .pizza)) {
+                    CategoryView(imageName: "pizza", categoryName: "PIZZA")
+                }
+                NavigationLink(destination: DetailView(currentCategory: .pasta)) {
+                    CategoryView(imageName: "pasta", categoryName: "PASTA")
+                }
+                NavigationLink(destination: DetailView(currentCategory: .burger)) {
+                    CategoryView(imageName: "dessert", categoryName: "DESSERT")
+                }
+            }
+                .navigationBarTitle(Text("Food Delivery"))
+        }
     }
 }
 
